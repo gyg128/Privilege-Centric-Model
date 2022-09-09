@@ -1,0 +1,322 @@
+Error1_pt
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 45 ms (walltime: 44 ms)
+
+* 13750 states checked (47.7% of total 28822), 45152 transitions, bf-level 9,  1 operation not covered, 216.613 MB
+* currently checking 682.50 states/sec, adding 1430.63 new states/sec
+* walltime 0.3 minutes, percentage of checked states decreasing from 50.0%
+% Found "invariant_violation" error in state id 14608
+finding_trace_from_to(root)
+...................
+Model checking time: 25156 ms (25518 ms walltime)
+States analysed: 14608
+Transitions fired: 63281
+Breadth-first levels: 9
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=9):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(iopt|->read),(iopt|->write),(iommu_control|->read)...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Call(3)
+ 4: Switch_p2n
+ 5: Change_stack(reg_mem={(pc|->3),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 6: Set_tcr({(sz|->FALSE)})
+ 7: Enable_interrupt(switch_stage=5)
+ 8: Interrupt(reg_mem={(pc|->9),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 9: Set_mem_map(2,priv_data,{})
+[31m[1m*** Invariant 13 false (in state with id 14608):
+ mem_type(reg_mem(sp)) : dom(stack_ret)
+[0m
+Writing states to dot file Error1_pt_Domain.dot
+Coverage:
+ States: 43984 (14610 processed, 0 ignored)
+ Transitions: 63281
+ Uninitialised states: 2 (root and constants only)
+ The following 1 operations (out of 18) were not covered:
+   [Set_iommu_control]
+At least one state violates the invariant (14608) 
+ProB memory used:  248.178 MB ( 143.320 MB program) 
+
+Error2_iopt
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 43 ms (walltime: 43 ms)
+
+* 12050 states checked (57.3% of total 21014), 43638 transitions, bf-level 9,  2 operations not covered, 211.739 MB
+* currently checking 602.24 states/sec, adding 1050.23 new states/sec
+* walltime 0.3 minutes
+% Found "invariant_violation" error in state id 18488
+finding_trace_from_to(root)
+.......................
+Model checking time: 26267 ms (26601 ms walltime)
+States analysed: 18488
+Transitions fired: 56140
+Breadth-first levels: 9
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=9):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iommu_control|->read),(io...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Call(3)
+ 4: Switch_p2n
+ 5: Change_stack(reg_mem={(pc|->3),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 6: Set_tcr({(sz|->FALSE)})
+ 7: Enable_interrupt(switch_stage=5)
+ 8: Interrupt(reg_mem={(pc|->9),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 9: Set_io_map(1,{write})
+[31m[1m*** Invariant 15 false (in state with id 18488):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m
+Writing states to dot file Error2_iopt_Domain.dot
+Coverage:
+ States: 28913 (18490 processed, 0 ignored)
+ Transitions: 56140
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 18) were not covered:
+   [Set_mem_map,Set_iommu_control]
+At least one state violates the invariant (18488) 
+ProB memory used:  218.381 MB ( 113.524 MB program) 
+
+Error3_idt
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 44 ms (walltime: 45 ms)
+% Found "invariant_violation" error in state id 611
+finding_trace_from_to(root)
+.
+Model checking time: 2453 ms (2475 ms walltime)
+States analysed: 611
+Transitions fired: 6660
+Breadth-first levels: 5
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=5):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->writ...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Enable_interrupt()
+ 4: Write(5)
+ 5: Interrupt(reg_mem={(pc|->9),(sp|->1),(ttbr|->8),(vbar|->5)})
+[31m[1m*** Invariant 15 false (in state with id 611):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m
+Writing states to dot file Error3_idt_Domain.dot
+Coverage:
+ States: 3586 (613 processed, 0 ignored)
+ Transitions: 6660
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 18) were not covered:
+   [Ret,Set_tcr]
+At least one state violates the invariant (611) 
+ProB memory used:  176.531 MB ( 71.673 MB program) 
+
+Error4_stack
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 46 ms (walltime: 46 ms)
+
+* 12225 states checked (57.5% of total 21246), 44107 transitions, bf-level 9,  2 operations not covered, 212.306 MB
+* currently checking 610.77 states/sec, adding 1061.46 new states/sec
+* walltime 0.3 minutes
+
+* 33300 states checked (72.8% of total 45771), 82613 transitions, bf-level 11,  2 operations not covered, 249.270 MB
+* currently checking 1053.38 states/sec, adding 1225.82 new states/sec
+* walltime 0.7 minutes
+
+* 51025 states checked (75.1% of total 67973), 127912 transitions, bf-level 12,  2 operations not covered, 276.134 MB
+* currently checking 885.14 states/sec, adding 1108.71 new states/sec
+* walltime 1.0 minutes
+
+* 64650 states checked (73.6% of total 87877), 179477 transitions, bf-level 13,  2 operations not covered, 310.438 MB
+* currently checking 680.71 states/sec, adding 994.40 new states/sec
+* walltime 1.3 minutes, percentage of checked states decreasing from 75.1%
+
+* 77650 states checked (72.3% of total 107416), 234273 transitions, bf-level 14,  2 operations not covered, 341.117 MB
+* currently checking 649.09 states/sec, adding 975.58 new states/sec
+* walltime 1.7 minutes, percentage of checked states decreasing from 73.6%
+
+* 90350 states checked (71.3% of total 126659), 289794 transitions, bf-level 14,  2 operations not covered, 378.654 MB
+* currently checking 634.65 states/sec, adding 961.62 new states/sec
+* walltime 2.0 minutes, percentage of checked states decreasing from 72.3%
+
+* 104250 states checked (71.7% of total 145498), 344371 transitions, bf-level 15,  2 operations not covered, 407.934 MB
+* currently checking 694.69 states/sec, adding 941.53 new states/sec
+* walltime 2.3 minutes
+
+* 118000 states checked (71.8% of total 164447), 399714 transitions, bf-level 15,  2 operations not covered, 448.910 MB
+* currently checking 687.05 states/sec, adding 946.83 new states/sec
+* walltime 2.7 minutes
+
+* 132425 states checked (72.3% of total 183280), 454640 transitions, bf-level 15,  2 operations not covered, 485.322 MB
+* currently checking 720.24 states/sec, adding 940.33 new states/sec
+* walltime 3.0 minutes
+
+* 147825 states checked (73.3% of total 201727), 508212 transitions, bf-level 16,  2 operations not covered, 515.924 MB
+* currently checking 768.81 states/sec, adding 920.92 new states/sec
+* walltime 3.3 minutes
+
+* 163675 states checked (74.4% of total 220053), 561281 transitions, bf-level 16,  2 operations not covered, 537.255 MB
+* currently checking 792.38 states/sec, adding 916.16 new states/sec
+* walltime 3.7 minutes
+
+* 179950 states checked (75.5% of total 238242), 614024 transitions, bf-level 16,  2 operations not covered, 571.915 MB
+* currently checking 812.82 states/sec, adding 908.41 new states/sec
+* walltime 4.0 minutes
+
+ALL OPERATIONS COVERED
+% Found "invariant_violation" error in state id 193082
+finding_trace_from_to(root)
+..................................................................................................................................................................................................................................................................................................
+Model checking time: 253385 ms (256877 ms walltime)
+States analysed: 193082
+Transitions fired: 650169
+Breadth-first levels: 16
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=16):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->writ...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Call(3)
+ 4: Switch_p2n
+ 5: Change_stack(reg_mem={(pc|->3),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 6: Set_tcr({(sz|->FALSE)})
+ 7: Enable_interrupt(switch_stage=5)
+ 8: Jump(9)
+ 9: Call(4)
+ 10: Attack_stack(9)
+ 11: Switch_n2p
+ 12: Disable_interrupt(switch_stage=3)
+ 13: Set_tcr({(sz|->TRUE)})
+ 14: Change_stack(mem_priv={(1|->read),(1|->write),(2|->read),(2|->write),(3|->read),(3|->execute),(4|->read),(4|->execute),(9|->read),(9|->execute),(10|->execute)},mem_type_priv={(priv_code|->execute),(normal_code|->read),(normal_code|->execute),(n2p_gate|->read),(n2p_gate|->execute),(p2n_gate|->read),(p2n_gate|->execute),(normal_stack|->read),(normal_stack|->write),(priv_stack|->read),(priv_stack|->write)},reg_mem={(pc|->4),(sp|->1),(ttbr|->8),(vbar|->5)})
+ 15: Jump(10)
+ 16: Ret
+[31m[1m*** Invariant 15 false (in state with id 193082):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m[31m[1m*** Invariant 17 false (in state with id 193082):
+ tag = normal => reg_priv /\ ran(inst_priv) = {}
+[0m
+Writing states to dot file Error4_stack_Domain.dot
+Coverage:
+ States: 251485 (193084 processed, 0 ignored)
+ Transitions: 650169
+ Uninitialised states: 2 (root and constants only)
+ All 19 possible operations have been covered
+At least one state violates the invariant (193082) 
+ProB memory used:  613.267 MB ( 508.410 MB program) 
+
+Error5_tcr
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 45 ms (walltime: 46 ms)
+
+ALL OPERATIONS COVERED
+% Found "invariant_violation" error in state id 5853
+finding_trace_from_to(root)
+.......
+Model checking time: 11301 ms (11459 ms walltime)
+States analysed: 5853
+Transitions fired: 31116
+Breadth-first levels: 10
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=10):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->write),(iommu_control|->read...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Call(3)
+ 4: Switch_p2n
+ 5: Change_stack(reg_mem={(pc|->3),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 6: Set_tcr({(sz|->FALSE)})
+ 7: Enable_interrupt(switch_stage=5)
+ 8: Jump(9)
+ 9: Set_tcr({(sz|->TRUE)})
+ 10: Set_mem_map(1,priv_data,{})
+[31m[1m*** Invariant 15 false (in state with id 5853):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m[31m[1m*** Invariant 18 false (in state with id 5853):
+ mem_integrity[(mem_tag~)[{privileged}]] = {TRUE}
+[0m
+Writing states to dot file Error5_tcr_Domain.dot
+Coverage:
+ States: 25655 (5855 processed, 0 ignored)
+ Transitions: 31116
+ Uninitialised states: 2 (root and constants only)
+ All 18 possible operations have been covered
+At least one state violates the invariant (5853) 
+ProB memory used:  216.316 MB ( 111.458 MB program) 
+
+Error6_ttbr
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 40 ms (walltime: 44 ms)
+% Found "invariant_violation" error in state id 5160
+finding_trace_from_to(root)
+......
+Model checking time: 6419 ms (6517 ms walltime)
+States analysed: 5160
+Transitions fired: 12526
+Breadth-first levels: 9
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=9):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->write),(iommu_control|->read),...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Call(3)
+ 4: Switch_p2n
+ 5: Change_stack(reg_mem={(pc|->3),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 6: Set_tcr({(sz|->FALSE)})
+ 7: Enable_interrupt(switch_stage=5)
+ 8: Jump(9)
+ 9: Set_ttbr(12)
+[31m[1m*** Invariant 15 false (in state with id 5160):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m[31m[1m*** Invariant 18 false (in state with id 5160):
+ mem_integrity[(mem_tag~)[{privileged}]] = {TRUE}
+[0m
+Writing states to dot file Error6_ttbr_Domain.dot
+Coverage:
+ States: 8241 (5162 processed, 0 ignored)
+ Transitions: 12526
+ Uninitialised states: 2 (root and constants only)
+ The following 1 operations (out of 18) were not covered:
+   [Set_iommu_control]
+At least one state violates the invariant (5160) 
+ProB memory used:  183.621 MB ( 78.764 MB program) 
+
+Error7_vbar
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 45 ms (walltime: 49 ms)
+% Found "invariant_violation" error in state id 5161
+finding_trace_from_to(root)
+.......
+Model checking time: 6411 ms (6534 ms walltime)
+States analysed: 5161
+Transitions fired: 11484
+Breadth-first levels: 9
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=9):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->write),(iommu_control|->read),...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Call(3)
+ 4: Switch_p2n
+ 5: Change_stack(reg_mem={(pc|->3),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 6: Set_tcr({(sz|->FALSE)})
+ 7: Enable_interrupt(switch_stage=5)
+ 8: Interrupt(reg_mem={(pc|->9),(sp|->2),(ttbr|->8),(vbar|->5)})
+ 9: Set_vbar(12)
+[31m[1m*** Invariant 15 false (in state with id 5161):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m[31m[1m*** Invariant 18 false (in state with id 5161):
+ mem_integrity[(mem_tag~)[{privileged}]] = {TRUE}
+[0m
+Writing states to dot file Error7_vbar_Domain.dot
+Coverage:
+ States: 7202 (5163 processed, 0 ignored)
+ Transitions: 11484
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 18) were not covered:
+   [Set_mem_map,Set_iommu_control]
+At least one state violates the invariant (5161) 
+ProB memory used:  181.913 MB ( 77.055 MB program) 
+

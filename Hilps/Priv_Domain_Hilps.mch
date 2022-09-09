@@ -151,6 +151,7 @@ OPERATIONS
         (mpriv <: MEM_PRIV) &
         (switch_stage = 0) &
         (tag /= privileged)
+        //bypass the privilege check
     THEN
         mem := mem \/ {mm} ||
         mem_type(mm) := mtype ||
@@ -530,6 +531,7 @@ OPERATIONS
         IF 
             FALSE /: mem_integrity[mem_type~[{idt}]]
         THEN
+            //privilege setting
             control_bit(sz) := FALSE ||
             mem_type_priv := mem_type_priv - mem_priv_diff ;
             mem_priv := mem_priv_policy

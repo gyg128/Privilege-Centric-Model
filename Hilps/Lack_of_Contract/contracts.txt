@@ -1,0 +1,724 @@
+Lack of C1
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 47 ms (walltime: 64 ms)
+% Found "invariant_violation" error in state id 1050
+finding_trace_from_to(root)
+.
+Model checking time: 4348 ms (4373 ms walltime)
+States analysed: 1050
+Transitions fired: 13074
+Breadth-first levels: 5
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=5):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->writ...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Write(5)
+ 4: Enable_interrupt()
+ 5: Interrupt(reg_mem={(pc|->9),(sp|->1),(ttbr|->8),(vbar|->5)})
+[31m[1m*** Invariant 15 false (in state with id 1050):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m
+Writing states to dot file Lack_C1.dot
+Coverage:
+ States: 5946 (1052 processed, 0 ignored)
+ Transitions: 13074
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 18) were not covered:
+   [Ret,Set_tcr]
+At least one state violates the invariant (1050) 
+ProB memory used:  181.763 MB ( 76.905 MB program) 
+
+Lack of C2
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 45 ms (walltime: 44 ms)
+
+* 6975 states checked (33.7% of total 20698), 53829 transitions, bf-level 7,  4 operations not covered, 209.897 MB
+* currently checking 348.04 states/sec, adding 1032.84 new states/sec
+* walltime 0.3 minutes, percentage of checked states decreasing from 50.0%
+
+* 16600 states checked (40.4% of total 41088), 106890 transitions, bf-level 8,  3 operations not covered, 247.797 MB
+* currently checking 481.15 states/sec, adding 1019.30 new states/sec
+* walltime 0.7 minutes
+
+* 27650 states checked (45.2% of total 61148), 156700 transitions, bf-level 8,  3 operations not covered, 279.179 MB
+* currently checking 552.11 states/sec, adding 1002.30 new states/sec
+* walltime 1.0 minutes
+
+* 38975 states checked (48.4% of total 80476), 202846 transitions, bf-level 9,  2 operations not covered, 325.221 MB
+* currently checking 565.91 states/sec, adding 965.82 new states/sec
+* walltime 1.3 minutes
+
+* 52175 states checked (51.6% of total 101116), 249941 transitions, bf-level 9,  2 operations not covered, 357.765 MB
+* currently checking 659.74 states/sec, adding 1031.59 new states/sec
+* walltime 1.7 minutes
+
+* 67425 states checked (55.1% of total 122260), 293324 transitions, bf-level 10,  2 operations not covered, 383.329 MB
+* currently checking 761.70 states/sec, adding 1056.09 new states/sec
+* walltime 2.0 minutes
+
+* 81350 states checked (56.8% of total 143275), 340187 transitions, bf-level 10,  2 operations not covered, 425.777 MB
+* currently checking 695.31 states/sec, adding 1049.33 new states/sec
+* walltime 2.3 minutes
+
+* 97725 states checked (59.1% of total 165250), 384089 transitions, bf-level 10,  2 operations not covered, 462.703 MB
+* currently checking 817.73 states/sec, adding 1097.38 new states/sec
+* walltime 2.7 minutes
+
+* 116775 states checked (62.0% of total 188444), 425243 transitions, bf-level 10,  2 operations not covered, 489.661 MB
+* currently checking 951.83 states/sec, adding 1158.89 new states/sec
+* walltime 3.0 minutes
+
+* 133950 states checked (63.5% of total 210809), 468751 transitions, bf-level 11,  2 operations not covered, 525.691 MB
+* currently checking 857.68 states/sec, adding 1116.85 new states/sec
+* walltime 3.3 minutes
+
+* 152025 states checked (65.4% of total 232574), 507088 transitions, bf-level 11,  2 operations not covered, 560.537 MB
+* currently checking 903.12 states/sec, adding 1087.49 new states/sec
+* walltime 3.7 minutes
+
+* 170175 states checked (66.9% of total 254466), 545814 transitions, bf-level 11,  2 operations not covered, 581.340 MB
+* currently checking 906.73 states/sec, adding 1093.67 new states/sec
+* walltime 4.0 minutes
+
+* 190625 states checked (68.6% of total 277840), 584955 transitions, bf-level 11,  2 operations not covered, 602.699 MB
+* currently checking 1022.19 states/sec, adding 1168.35 new states/sec
+* walltime 4.3 minutes
+
+* 209575 states checked (69.6% of total 300975), 627214 transitions, bf-level 12,  2 operations not covered, 644.126 MB
+* currently checking 946.22 states/sec, adding 1155.19 new states/sec
+* walltime 4.7 minutes
+
+* 230150 states checked (70.9% of total 324491), 666621 transitions, bf-level 12,  2 operations not covered, 666.459 MB
+* currently checking 1028.34 states/sec, adding 1175.33 new states/sec
+* walltime 5.0 minutes
+
+* 250000 states checked (71.9% of total 347514), 706463 transitions, bf-level 12,  2 operations not covered, 736.518 MB
+* currently checking 991.95 states/sec, adding 1150.52 new states/sec
+* walltime 5.3 minutes
+
+* 268675 states checked (72.8% of total 369298), 746259 transitions, bf-level 12,  2 operations not covered, 755.713 MB
+* currently checking 932.63 states/sec, adding 1087.89 new states/sec
+* walltime 5.7 minutes
+
+* 285675 states checked (73.1% of total 390652), 790806 transitions, bf-level 13,  2 operations not covered, 777.355 MB
+* currently checking 849.02 states/sec, adding 1066.47 new states/sec
+* walltime 6.0 minutes
+
+* 305825 states checked (73.9% of total 413702), 830306 transitions, bf-level 13,  2 operations not covered, 830.436 MB
+* currently checking 1007.10 states/sec, adding 1152.04 new states/sec
+* walltime 6.3 minutes
+
+* 324025 states checked (74.4% of total 435383), 872174 transitions, bf-level 13,  2 operations not covered, 850.464 MB
+* currently checking 909.45 states/sec, adding 1083.40 new states/sec
+* walltime 6.7 minutes
+
+* 342575 states checked (74.9% of total 457646), 915459 transitions, bf-level 13,  2 operations not covered, 887.319 MB
+* currently checking 926.53 states/sec, adding 1111.98 new states/sec
+* walltime 7.0 minutes
+
+* 359550 states checked (75.1% of total 478941), 961022 transitions, bf-level 13,  2 operations not covered, 908.393 MB
+* currently checking 848.37 states/sec, adding 1064.27 new states/sec
+* walltime 7.3 minutes
+
+* 375000 states checked (75.1% of total 499416), 1009190 transitions, bf-level 13,  2 operations not covered, 930.599 MB
+* currently checking 771.92 states/sec, adding 1022.98 new states/sec
+* walltime 7.7 minutes
+
+* 391725 states checked (75.2% of total 520568), 1056270 transitions, bf-level 14,  2 operations not covered, 967.758 MB
+* currently checking 835.87 states/sec, adding 1057.12 new states/sec
+* walltime 8.0 minutes
+
+* 409025 states checked (75.5% of total 542045), 1101149 transitions, bf-level 14,  2 operations not covered, 997.133 MB
+* currently checking 864.01 states/sec, adding 1072.62 new states/sec
+* walltime 8.3 minutes
+
+* 425800 states checked (75.6% of total 563194), 1147034 transitions, bf-level 14,  2 operations not covered, 1018.736 MB
+* currently checking 838.58 states/sec, adding 1057.24 new states/sec
+* walltime 8.7 minutes
+
+* 440050 states checked (75.5% of total 582861), 1197142 transitions, bf-level 14,  2 operations not covered, 1055.227 MB
+* currently checking 711.01 states/sec, adding 981.29 new states/sec
+* walltime 9.0 minutes, percentage of checked states decreasing from 75.6%
+
+* 456925 states checked (75.6% of total 604032), 1243021 transitions, bf-level 14,  2 operations not covered, 1076.731 MB
+* currently checking 842.70 states/sec, adding 1057.23 new states/sec
+* walltime 9.3 minutes
+
+* 471200 states checked (75.5% of total 623746), 1293298 transitions, bf-level 14,  2 operations not covered, 1112.932 MB
+* currently checking 713.11 states/sec, adding 984.81 new states/sec
+* walltime 9.7 minutes, percentage of checked states decreasing from 75.6%
+
+* 485900 states checked (75.5% of total 643630), 1342169 transitions, bf-level 14,  2 operations not covered, 1134.776 MB
+* currently checking 734.19 states/sec, adding 993.11 new states/sec
+* walltime 10.0 minutes, percentage of checked states decreasing from 75.5%
+
+* 500125 states checked (75.4% of total 663155), 1393369 transitions, bf-level 14,  2 operations not covered, 1157.288 MB
+* currently checking 710.93 states/sec, adding 975.81 new states/sec
+* walltime 10.3 minutes, percentage of checked states decreasing from 75.5%
+
+* 515875 states checked (75.6% of total 682694), 1441779 transitions, bf-level 15,  2 operations not covered, 1260.070 MB
+* currently checking 787.30 states/sec, adding 976.71 new states/sec
+* walltime 10.7 minutes
+
+* 531675 states checked (75.6% of total 703272), 1488619 transitions, bf-level 15,  2 operations not covered, 1280.131 MB
+* currently checking 789.76 states/sec, adding 1028.59 new states/sec
+* walltime 11.0 minutes
+
+* 546575 states checked (75.6% of total 723372), 1538872 transitions, bf-level 15,  2 operations not covered, 1324.643 MB
+* currently checking 743.55 states/sec, adding 1003.04 new states/sec
+* walltime 11.3 minutes, percentage of checked states decreasing from 75.6%
+
+* 560950 states checked (75.5% of total 743219), 1589988 transitions, bf-level 15,  2 operations not covered, 1346.884 MB
+* currently checking 718.07 states/sec, adding 991.41 new states/sec
+* walltime 11.7 minutes, percentage of checked states decreasing from 75.6%
+
+* 575175 states checked (75.4% of total 762895), 1641573 transitions, bf-level 15,  2 operations not covered, 1369.374 MB
+* currently checking 710.50 states/sec, adding 982.77 new states/sec
+* walltime 12.0 minutes, percentage of checked states decreasing from 75.5%
+
+* 590850 states checked (75.5% of total 782786), 1691422 transitions, bf-level 15,  2 operations not covered, 1405.269 MB
+* currently checking 783.36 states/sec, adding 994.05 new states/sec
+* walltime 12.3 minutes
+
+* 605050 states checked (75.4% of total 802380), 1741927 transitions, bf-level 15,  2 operations not covered, 1459.284 MB
+* currently checking 709.04 states/sec, adding 978.38 new states/sec
+* walltime 12.7 minutes, percentage of checked states decreasing from 75.5%
+
+* 619325 states checked (75.4% of total 821929), 1794127 transitions, bf-level 15,  2 operations not covered, 1495.561 MB
+* currently checking 712.79 states/sec, adding 976.13 new states/sec
+* walltime 13.0 minutes, percentage of checked states decreasing from 75.4%
+
+* 634325 states checked (75.4% of total 841533), 1845459 transitions, bf-level 15,  2 operations not covered, 1517.331 MB
+* currently checking 749.06 states/sec, adding 978.98 new states/sec
+* walltime 13.3 minutes
+
+* 649325 states checked (75.4% of total 861063), 1897417 transitions, bf-level 15,  2 operations not covered, 1538.710 MB
+* currently checking 749.29 states/sec, adding 975.57 new states/sec
+* walltime 13.7 minutes
+
+* 664400 states checked (75.5% of total 880472), 1949398 transitions, bf-level 15,  2 operations not covered, 1574.822 MB
+* currently checking 752.85 states/sec, adding 969.29 new states/sec
+* walltime 14.0 minutes
+
+* 681725 states checked (75.8% of total 899758), 1998310 transitions, bf-level 16,  2 operations not covered, 1594.309 MB
+* currently checking 865.90 states/sec, adding 963.91 new states/sec
+* walltime 14.3 minutes
+
+* 695950 states checked (75.7% of total 919434), 2048894 transitions, bf-level 16,  2 operations not covered, 1629.315 MB
+* currently checking 710.79 states/sec, adding 983.16 new states/sec
+* walltime 14.7 minutes, percentage of checked states decreasing from 75.8%
+
+* 710225 states checked (75.6% of total 939130), 2100472 transitions, bf-level 16,  2 operations not covered, 1650.078 MB
+* currently checking 712.43 states/sec, adding 982.98 new states/sec
+* walltime 15.0 minutes, percentage of checked states decreasing from 75.7%
+
+* 725175 states checked (75.7% of total 958576), 2151388 transitions, bf-level 16,  2 operations not covered, 1670.874 MB
+* currently checking 747.20 states/sec, adding 971.91 new states/sec
+* walltime 15.3 minutes
+
+* 739775 states checked (75.6% of total 978025), 2203383 transitions, bf-level 16,  2 operations not covered, 1706.333 MB
+* currently checking 729.45 states/sec, adding 971.72 new states/sec
+* walltime 15.7 minutes, percentage of checked states decreasing from 75.7%
+
+* 754900 states checked (75.7% of total 997446), 2255169 transitions, bf-level 16,  2 operations not covered, 1727.378 MB
+* currently checking 755.04 states/sec, adding 969.50 new states/sec
+* walltime 16.0 minutes
+
+* 771275 states checked (75.9% of total 1016372), 2305401 transitions, bf-level 16,  2 operations not covered, 1762.276 MB
+* currently checking 817.56 states/sec, adding 944.93 new states/sec
+* walltime 16.3 minutes
+
+* 786075 states checked (75.9% of total 1035853), 2356326 transitions, bf-level 16,  2 operations not covered, 1781.000 MB
+* currently checking 739.41 states/sec, adding 973.27 new states/sec
+* walltime 16.7 minutes
+
+* 801050 states checked (75.9% of total 1055276), 2408161 transitions, bf-level 16,  2 operations not covered, 1832.941 MB
+* currently checking 747.74 states/sec, adding 969.84 new states/sec
+* walltime 17.0 minutes
+
+* 816425 states checked (76.0% of total 1074556), 2459647 transitions, bf-level 16,  2 operations not covered, 1853.601 MB
+* currently checking 767.75 states/sec, adding 962.75 new states/sec
+* walltime 17.3 minutes
+
+* 832775 states checked (76.2% of total 1093573), 2510055 transitions, bf-level 16,  2 operations not covered, 1888.268 MB
+* currently checking 817.42 states/sec, adding 950.75 new states/sec
+* walltime 17.7 minutes
+
+* 848350 states checked (76.2% of total 1112914), 2561686 transitions, bf-level 16,  2 operations not covered, 1906.949 MB
+* currently checking 777.89 states/sec, adding 965.99 new states/sec
+* walltime 18.0 minutes
+
+* 865025 states checked (76.4% of total 1131870), 2612020 transitions, bf-level 16,  2 operations not covered, 1925.438 MB
+* currently checking 832.71 states/sec, adding 946.62 new states/sec
+* walltime 18.4 minutes
+
+* 882625 states checked (76.7% of total 1150823), 2662036 transitions, bf-level 16,  2 operations not covered, 1960.080 MB
+* currently checking 878.77 states/sec, adding 946.33 new states/sec
+* walltime 18.7 minutes
+
+* 900300 states checked (77.0% of total 1169033), 2709919 transitions, bf-level 17,  2 operations not covered, 1975.425 MB
+* currently checking 883.44 states/sec, adding 910.18 new states/sec
+* walltime 19.0 minutes
+
+* 914650 states checked (76.9% of total 1188679), 2762349 transitions, bf-level 17,  2 operations not covered, 2010.313 MB
+* currently checking 716.64 states/sec, adding 981.12 new states/sec
+* walltime 19.4 minutes, percentage of checked states decreasing from 77.0%
+
+* 929875 states checked (77.0% of total 1208099), 2814116 transitions, bf-level 17,  2 operations not covered, 2031.223 MB
+* currently checking 761.17 states/sec, adding 970.90 new states/sec
+* walltime 19.7 minutes
+
+* 945800 states checked (77.1% of total 1226986), 2864293 transitions, bf-level 17,  2 operations not covered, 2065.320 MB
+* currently checking 795.45 states/sec, adding 943.41 new states/sec
+* walltime 20.0 minutes
+
+* 961200 states checked (77.2% of total 1245792), 2914343 transitions, bf-level 17,  2 operations not covered, 2082.937 MB
+* currently checking 769.92 states/sec, adding 940.21 new states/sec
+* walltime 20.4 minutes
+
+* 977400 states checked (77.3% of total 1264800), 2964833 transitions, bf-level 17,  2 operations not covered, 2117.227 MB
+* currently checking 809.51 states/sec, adding 949.83 new states/sec
+* walltime 20.7 minutes
+
+* 993875 states checked (77.4% of total 1283755), 3015209 transitions, bf-level 17,  2 operations not covered, 2135.575 MB
+* currently checking 823.01 states/sec, adding 946.90 new states/sec
+* walltime 21.0 minutes
+
+* 1011000 states checked (77.7% of total 1301215), 3061214 transitions, bf-level 17,  2 operations not covered, 2301.543 MB
+* currently checking 855.78 states/sec, adding 872.52 new states/sec
+* walltime 21.4 minutes
+
+* 1027150 states checked (77.8% of total 1319581), 3110630 transitions, bf-level 17,  2 operations not covered, 2316.839 MB
+* currently checking 806.25 states/sec, adding 916.88 new states/sec
+* walltime 21.7 minutes
+
+* 1042800 states checked (77.9% of total 1338407), 3160697 transitions, bf-level 17,  2 operations not covered, 2350.298 MB
+* currently checking 781.76 states/sec, adding 940.41 new states/sec
+* walltime 22.0 minutes
+
+* 1059175 states checked (78.1% of total 1356874), 3209685 transitions, bf-level 17,  2 operations not covered, 2367.715 MB
+* currently checking 818.46 states/sec, adding 923.03 new states/sec
+* walltime 22.4 minutes
+
+* 1076800 states checked (78.3% of total 1375413), 3258663 transitions, bf-level 17,  2 operations not covered, 2401.031 MB
+* currently checking 879.93 states/sec, adding 925.56 new states/sec
+* walltime 22.7 minutes
+
+* 1094325 states checked (78.5% of total 1393748), 3307785 transitions, bf-level 17,  2 operations not covered, 2416.669 MB
+* currently checking 875.16 states/sec, adding 915.61 new states/sec
+* walltime 23.0 minutes
+
+* 1111775 states checked (78.7% of total 1412447), 3357149 transitions, bf-level 17,  2 operations not covered, 2450.259 MB
+* currently checking 871.67 states/sec, adding 934.06 new states/sec
+* walltime 23.4 minutes
+
+* 1129950 states checked (79.0% of total 1430174), 3404418 transitions, bf-level 17,  2 operations not covered, 2464.880 MB
+* currently checking 907.98 states/sec, adding 885.60 new states/sec
+* walltime 23.7 minutes
+
+* 1148500 states checked (79.3% of total 1447714), 3451147 transitions, bf-level 17,  2 operations not covered, 2496.931 MB
+* currently checking 927.41 states/sec, adding 876.91 new states/sec
+* walltime 24.0 minutes
+
+* 1166700 states checked (79.7% of total 1464353), 3497488 transitions, bf-level 18,  2 operations not covered, 2508.961 MB
+* currently checking 909.23 states/sec, adding 831.24 new states/sec
+* walltime 24.4 minutes
+
+* 1182050 states checked (79.7% of total 1483702), 3549150 transitions, bf-level 18,  2 operations not covered, 2542.798 MB
+* currently checking 767.42 states/sec, adding 967.35 new states/sec
+* walltime 24.7 minutes, percentage of checked states decreasing from 79.7%
+
+* 1198900 states checked (79.8% of total 1502783), 3599822 transitions, bf-level 18,  2 operations not covered, 2560.584 MB
+* currently checking 841.74 states/sec, adding 953.19 new states/sec
+* walltime 25.0 minutes
+
+* 1216050 states checked (79.9% of total 1521757), 3650036 transitions, bf-level 18,  2 operations not covered, 2594.214 MB
+* currently checking 856.90 states/sec, adding 948.04 new states/sec
+* walltime 25.4 minutes
+
+* 1233800 states checked (80.2% of total 1539200), 3696671 transitions, bf-level 18,  2 operations not covered, 2608.435 MB
+* currently checking 887.19 states/sec, adding 871.84 new states/sec
+* walltime 25.7 minutes
+
+* 1250425 states checked (80.3% of total 1557595), 3745343 transitions, bf-level 18,  2 operations not covered, 2640.919 MB
+* currently checking 829.92 states/sec, adding 918.28 new states/sec
+* walltime 26.0 minutes
+
+* 1268475 states checked (80.5% of total 1575190), 3792131 transitions, bf-level 18,  2 operations not covered, 2721.843 MB
+* currently checking 901.28 states/sec, adding 878.56 new states/sec
+* walltime 26.4 minutes
+
+* 1286425 states checked (80.8% of total 1593053), 3839587 transitions, bf-level 18,  2 operations not covered, 2753.941 MB
+* currently checking 896.25 states/sec, adding 891.90 new states/sec
+* walltime 26.7 minutes
+
+* 1305600 states checked (81.1% of total 1609546), 3884952 transitions, bf-level 18,  2 operations not covered, 2765.925 MB
+* currently checking 958.27 states/sec, adding 824.24 new states/sec
+* walltime 27.0 minutes
+
+* 1322400 states checked (81.2% of total 1628110), 3934946 transitions, bf-level 18,  2 operations not covered, 2798.749 MB
+* currently checking 839.29 states/sec, adding 927.41 new states/sec
+* walltime 27.4 minutes
+
+* 1340400 states checked (81.4% of total 1646541), 3983656 transitions, bf-level 18,  2 operations not covered, 2813.462 MB
+* currently checking 899.55 states/sec, adding 921.09 new states/sec
+* walltime 27.7 minutes
+
+* 1358025 states checked (81.6% of total 1663887), 4029868 transitions, bf-level 18,  2 operations not covered, 2844.336 MB
+* currently checking 880.28 states/sec, adding 866.35 new states/sec
+* walltime 28.0 minutes
+
+* 1377175 states checked (81.9% of total 1680780), 4075570 transitions, bf-level 18,  2 operations not covered, 2856.210 MB
+* currently checking 956.93 states/sec, adding 844.14 new states/sec
+* walltime 28.4 minutes
+
+* 1395550 states checked (82.2% of total 1698075), 4122908 transitions, bf-level 18,  2 operations not covered, 2887.702 MB
+* currently checking 917.74 states/sec, adding 863.80 new states/sec
+* walltime 28.7 minutes
+
+* 1414150 states checked (82.5% of total 1714970), 4168310 transitions, bf-level 18,  2 operations not covered, 2898.668 MB
+* currently checking 929.40 states/sec, adding 844.20 new states/sec
+* walltime 29.0 minutes
+
+* 1433650 states checked (82.8% of total 1731585), 4214476 transitions, bf-level 18,  2 operations not covered, 2929.594 MB
+* currently checking 974.03 states/sec, adding 829.92 new states/sec
+* walltime 29.4 minutes
+
+* 1453300 states checked (83.2% of total 1747038), 4259489 transitions, bf-level 18,  2 operations not covered, 2939.957 MB
+* currently checking 981.22 states/sec, adding 771.65 new states/sec
+* walltime 29.7 minutes
+
+* 1470300 states checked (83.3% of total 1764606), 4309118 transitions, bf-level 19,  2 operations not covered, 2972.017 MB
+* currently checking 848.47 states/sec, adding 876.82 new states/sec
+* walltime 30.0 minutes
+
+* 1488575 states checked (83.5% of total 1783423), 4358699 transitions, bf-level 19,  2 operations not covered, 2987.284 MB
+* currently checking 913.34 states/sec, adding 940.43 new states/sec
+* walltime 30.4 minutes
+
+* 1507275 states checked (83.7% of total 1801776), 4407652 transitions, bf-level 19,  2 operations not covered, 3019.663 MB
+* currently checking 934.67 states/sec, adding 917.33 new states/sec
+* walltime 30.7 minutes
+
+* 1526600 states checked (83.9% of total 1819356), 4454871 transitions, bf-level 19,  2 operations not covered, 3051.231 MB
+* currently checking 965.14 states/sec, adding 877.99 new states/sec
+* walltime 31.0 minutes
+
+* 1545350 states checked (84.1% of total 1836712), 4502635 transitions, bf-level 19,  2 operations not covered, 3063.777 MB
+* currently checking 936.84 states/sec, adding 867.19 new states/sec
+* walltime 31.4 minutes
+
+* 1564750 states checked (84.4% of total 1854454), 4550133 transitions, bf-level 19,  2 operations not covered, 3095.517 MB
+* currently checking 969.27 states/sec, adding 886.44 new states/sec
+* walltime 31.7 minutes
+
+* 1584175 states checked (84.7% of total 1871000), 4596109 transitions, bf-level 19,  2 operations not covered, 3140.177 MB
+* currently checking 971.01 states/sec, adding 827.09 new states/sec
+* walltime 32.0 minutes
+
+* 1603900 states checked (85.0% of total 1886648), 4641228 transitions, bf-level 19,  2 operations not covered, 3169.965 MB
+* currently checking 985.56 states/sec, adding 781.85 new states/sec
+* walltime 32.4 minutes
+
+* 1622250 states checked (85.2% of total 1903365), 4688865 transitions, bf-level 19,  2 operations not covered, 3181.520 MB
+* currently checking 916.22 states/sec, adding 834.68 new states/sec
+* walltime 32.7 minutes
+
+* 1641500 states checked (85.5% of total 1920835), 4735866 transitions, bf-level 19,  2 operations not covered, 3212.529 MB
+* currently checking 962.36 states/sec, adding 873.37 new states/sec
+* walltime 33.0 minutes
+
+* 1661050 states checked (85.7% of total 1937467), 4782079 transitions, bf-level 19,  2 operations not covered, 3223.793 MB
+* currently checking 976.62 states/sec, adding 830.85 new states/sec
+* walltime 33.4 minutes
+
+* 1680675 states checked (86.1% of total 1952908), 4827081 transitions, bf-level 19,  2 operations not covered, 3253.160 MB
+* currently checking 980.47 states/sec, adding 771.43 new states/sec
+* walltime 33.7 minutes
+
+* 1699775 states checked (86.3% of total 1969010), 4873021 transitions, bf-level 19,  2 operations not covered, 3264.246 MB
+* currently checking 953.90 states/sec, adding 804.18 new states/sec
+* walltime 34.0 minutes
+
+* 1719325 states checked (86.7% of total 1984140), 4917701 transitions, bf-level 19,  2 operations not covered, 3293.315 MB
+* currently checking 977.01 states/sec, adding 756.12 new states/sec
+* walltime 34.4 minutes
+
+* 1738350 states checked (87.0% of total 1998527), 4962396 transitions, bf-level 19,  2 operations not covered, 3303.034 MB
+* currently checking 950.01 states/sec, adding 718.42 new states/sec
+* walltime 34.7 minutes
+
+* 1756000 states checked (87.2% of total 2013256), 5008647 transitions, bf-level 20,  2 operations not covered, 3332.567 MB
+* currently checking 881.40 states/sec, adding 735.53 new states/sec
+* walltime 35.0 minutes
+
+* 1775200 states checked (87.4% of total 2031365), 5056792 transitions, bf-level 20,  2 operations not covered, 3346.535 MB
+* currently checking 959.38 states/sec, adding 904.86 new states/sec
+* walltime 35.4 minutes
+
+* 1794775 states checked (87.6% of total 2048043), 5103113 transitions, bf-level 20,  2 operations not covered, 3376.718 MB
+* currently checking 978.65 states/sec, adding 833.82 new states/sec
+* walltime 35.7 minutes
+
+* 1814525 states checked (87.9% of total 2064338), 5148777 transitions, bf-level 20,  2 operations not covered, 3387.351 MB
+* currently checking 986.96 states/sec, adding 814.30 new states/sec
+* walltime 36.0 minutes
+
+* 1833500 states checked (88.2% of total 2079627), 5194098 transitions, bf-level 20,  2 operations not covered, 3416.509 MB
+* currently checking 948.23 states/sec, adding 764.03 new states/sec
+* walltime 36.4 minutes
+
+* 1853225 states checked (88.4% of total 2095505), 5239436 transitions, bf-level 20,  2 operations not covered, 3426.576 MB
+* currently checking 985.46 states/sec, adding 793.27 new states/sec
+* walltime 36.7 minutes
+
+* 1872350 states checked (88.7% of total 2110114), 5283923 transitions, bf-level 20,  2 operations not covered, 3455.154 MB
+* currently checking 955.77 states/sec, adding 730.08 new states/sec
+* walltime 37.0 minutes
+
+* 1890650 states checked (89.0% of total 2123448), 5328212 transitions, bf-level 20,  2 operations not covered, 3464.333 MB
+* currently checking 914.50 states/sec, adding 666.33 new states/sec
+* walltime 37.4 minutes
+
+* 1909900 states checked (89.3% of total 2139922), 5374265 transitions, bf-level 20,  2 operations not covered, 3494.113 MB
+* currently checking 962.26 states/sec, adding 823.49 new states/sec
+* walltime 37.7 minutes
+
+* 1929025 states checked (89.5% of total 2154454), 5418553 transitions, bf-level 20,  2 operations not covered, 3503.602 MB
+* currently checking 955.49 states/sec, adding 726.02 new states/sec
+* walltime 38.0 minutes
+
+* 1948100 states checked (89.8% of total 2169001), 5463087 transitions, bf-level 20,  2 operations not covered, 3531.917 MB
+* currently checking 953.61 states/sec, adding 727.24 new states/sec
+* walltime 38.4 minutes
+
+* 1966650 states checked (90.1% of total 2183067), 5507772 transitions, bf-level 20,  2 operations not covered, 3541.811 MB
+* currently checking 926.94 states/sec, adding 702.88 new states/sec
+* walltime 38.7 minutes
+
+* 1984900 states checked (90.4% of total 2196373), 5551967 transitions, bf-level 20,  2 operations not covered, 3551.489 MB
+* currently checking 912.45 states/sec, adding 665.27 new states/sec
+* walltime 39.0 minutes
+
+* 2002675 states checked (90.6% of total 2209427), 5596375 transitions, bf-level 20,  2 operations not covered, 3579.413 MB
+* currently checking 887.86 states/sec, adding 652.05 new states/sec
+* walltime 39.4 minutes
+
+* 2021300 states checked (90.8% of total 2225553), 5642280 transitions, bf-level 21,  2 operations not covered, 3593.205 MB
+* currently checking 930.23 states/sec, adding 805.41 new states/sec
+* walltime 39.7 minutes
+
+* 2040875 states checked (91.1% of total 2240712), 5686989 transitions, bf-level 21,  2 operations not covered, 3621.591 MB
+* currently checking 978.55 states/sec, adding 757.80 new states/sec
+* walltime 40.0 minutes
+
+* 2059800 states checked (91.3% of total 2255048), 5731479 transitions, bf-level 21,  2 operations not covered, 3630.741 MB
+* currently checking 945.30 states/sec, adding 716.08 new states/sec
+* walltime 40.4 minutes
+
+* 2078150 states checked (91.6% of total 2268974), 5776037 transitions, bf-level 21,  2 operations not covered, 3658.786 MB
+* currently checking 917.04 states/sec, adding 695.95 new states/sec
+* walltime 40.7 minutes
+
+* 2096950 states checked (91.9% of total 2282731), 5820201 transitions, bf-level 21,  2 operations not covered, 3668.301 MB
+* currently checking 938.50 states/sec, adding 686.75 new states/sec
+* walltime 41.0 minutes
+
+* 2114675 states checked (92.1% of total 2295688), 5864496 transitions, bf-level 21,  2 operations not covered, 3695.846 MB
+* currently checking 885.41 states/sec, adding 647.24 new states/sec
+* walltime 41.4 minutes
+
+* 2132925 states checked (92.3% of total 2310040), 5909182 transitions, bf-level 21,  2 operations not covered, 3707.856 MB
+* currently checking 911.59 states/sec, adding 716.88 new states/sec
+* walltime 41.7 minutes
+
+* 2151250 states checked (92.6% of total 2323335), 5953007 transitions, bf-level 21,  2 operations not covered, 3717.117 MB
+* currently checking 916.11 states/sec, adding 664.65 new states/sec
+* walltime 42.0 minutes
+
+* 2169025 states checked (92.8% of total 2336402), 5997492 transitions, bf-level 21,  2 operations not covered, 3744.595 MB
+* currently checking 888.62 states/sec, adding 653.25 new states/sec
+* walltime 42.4 minutes
+
+* 2186725 states checked (93.1% of total 2349755), 6041893 transitions, bf-level 21,  2 operations not covered, 3747.998 MB
+* currently checking 883.01 states/sec, adding 666.15 new states/sec
+* walltime 42.7 minutes
+
+* 2203850 states checked (93.3% of total 2362810), 6086409 transitions, bf-level 21,  2 operations not covered, 3776.085 MB
+* currently checking 855.48 states/sec, adding 652.16 new states/sec
+* walltime 43.0 minutes
+
+* 2222650 states checked (93.5% of total 2378327), 6130402 transitions, bf-level 22,  2 operations not covered, 3790.215 MB
+* currently checking 939.62 states/sec, adding 775.54 new states/sec
+* walltime 43.4 minutes
+
+* 2240975 states checked (93.7% of total 2391597), 6174366 transitions, bf-level 22,  2 operations not covered, 3799.359 MB
+* currently checking 916.16 states/sec, adding 663.43 new states/sec
+* walltime 43.7 minutes
+
+* 2258675 states checked (93.9% of total 2404588), 6218596 transitions, bf-level 22,  2 operations not covered, 3826.447 MB
+* currently checking 884.47 states/sec, adding 649.16 new states/sec
+* walltime 44.0 minutes
+
+* 2276300 states checked (94.1% of total 2417910), 6262872 transitions, bf-level 22,  2 operations not covered, 3837.970 MB
+* currently checking 880.94 states/sec, adding 665.87 new states/sec
+* walltime 44.4 minutes
+
+* 2293450 states checked (94.3% of total 2430978), 6307326 transitions, bf-level 22,  2 operations not covered, 3865.823 MB
+* currently checking 856.60 states/sec, adding 652.71 new states/sec
+* walltime 44.7 minutes
+
+* 2311600 states checked (94.5% of total 2445394), 6350842 transitions, bf-level 22,  2 operations not covered, 3879.224 MB
+* currently checking 907.09 states/sec, adding 720.48 new states/sec
+* walltime 45.0 minutes
+
+* 2328900 states checked (94.7% of total 2458481), 6395332 transitions, bf-level 22,  2 operations not covered, 3890.752 MB
+* currently checking 863.75 states/sec, adding 653.40 new states/sec
+* walltime 45.4 minutes
+
+* 2346500 states checked (94.9% of total 2472641), 6439092 transitions, bf-level 22,  2 operations not covered, 3919.446 MB
+* currently checking 879.30 states/sec, adding 707.43 new states/sec
+* walltime 45.7 minutes
+
+* 2364175 states checked (95.0% of total 2487530), 6482248 transitions, bf-level 22,  2 operations not covered, 3933.413 MB
+* currently checking 883.40 states/sec, adding 744.15 new states/sec
+* walltime 46.0 minutes
+
+* 2383275 states checked (95.2% of total 2502581), 6524489 transitions, bf-level 23,  2 operations not covered, 3961.713 MB
+* currently checking 954.00 states/sec, adding 751.76 new states/sec
+* walltime 46.4 minutes
+
+* 2400375 states checked (95.4% of total 2515628), 6568941 transitions, bf-level 23,  2 operations not covered, 3972.122 MB
+* currently checking 854.87 states/sec, adding 652.25 new states/sec
+* walltime 46.7 minutes
+
+* 2418025 states checked (95.6% of total 2529983), 6612647 transitions, bf-level 23,  2 operations not covered, 3985.694 MB
+* currently checking 880.78 states/sec, adding 716.35 new states/sec
+* walltime 47.0 minutes
+
+* 2436475 states checked (95.7% of total 2545876), 6655226 transitions, bf-level 23,  2 operations not covered, 4015.917 MB
+* currently checking 921.81 states/sec, adding 794.05 new states/sec
+* walltime 47.4 minutes
+
+* 2454650 states checked (95.9% of total 2560634), 6698222 transitions, bf-level 23,  2 operations not covered, 4028.910 MB
+* currently checking 906.80 states/sec, adding 736.32 new states/sec
+* walltime 47.7 minutes
+
+* 2473725 states checked (96.0% of total 2577079), 6739952 transitions, bf-level 23,  2 operations not covered, 4044.003 MB
+* currently checking 952.46 states/sec, adding 821.14 new states/sec
+* walltime 48.0 minutes
+
+* 2495125 states checked (96.1% of total 2595368), 6778090 transitions, bf-level 24,  2 operations not covered, 4074.817 MB
+* currently checking 1069.47 states/sec, adding 913.99 new states/sec
+* walltime 48.4 minutes
+
+* 2512650 states checked (96.3% of total 2609630), 6821760 transitions, bf-level 24,  2 operations not covered, 4085.701 MB
+* currently checking 876.21 states/sec, adding 713.06 new states/sec
+* walltime 48.7 minutes
+
+* 2531475 states checked (96.4% of total 2626105), 6861972 transitions, bf-level 24,  2 operations not covered, 4115.367 MB
+* currently checking 940.64 states/sec, adding 823.21 new states/sec
+* walltime 49.0 minutes
+
+* 2552550 states checked (96.5% of total 2644076), 6900663 transitions, bf-level 24,  2 operations not covered, 4129.798 MB
+* currently checking 1053.28 states/sec, adding 898.15 new states/sec
+* walltime 49.4 minutes
+
+* 2574050 states checked (96.7% of total 2662726), 6938810 transitions, bf-level 24,  2 operations not covered, 4160.778 MB
+* currently checking 1073.28 states/sec, adding 931.01 new states/sec
+* walltime 49.7 minutes
+
+* 2596525 states checked (96.9% of total 2680762), 6973845 transitions, bf-level 25,  2 operations not covered, 4171.634 MB
+* currently checking 1110.26 states/sec, adding 890.97 new states/sec
+* walltime 50.0 minutes
+
+* 2615950 states checked (97.0% of total 2697932), 7010785 transitions, bf-level 25,  2 operations not covered, 4469.116 MB
+* currently checking 971.15 states/sec, adding 858.41 new states/sec
+* walltime 50.4 minutes
+
+* 2639500 states checked (97.1% of total 2717190), 7045371 transitions, bf-level 25,  2 operations not covered, 4479.707 MB
+* currently checking 1176.79 states/sec, adding 962.32 new states/sec
+* walltime 50.7 minutes
+
+* 2662875 states checked (97.3% of total 2735939), 7080057 transitions, bf-level 25,  2 operations not covered, 4509.263 MB
+* currently checking 1167.76 states/sec, adding 936.65 new states/sec
+* walltime 51.0 minutes
+
+* 2686500 states checked (97.6% of total 2753816), 7113760 transitions, bf-level 26,  2 operations not covered, 4512.661 MB
+* currently checking 1180.95 states/sec, adding 893.63 new states/sec
+* walltime 51.4 minutes
+
+* 2711200 states checked (97.8% of total 2772835), 7146376 transitions, bf-level 26,  2 operations not covered, 4541.750 MB
+* currently checking 1234.32 states/sec, adding 950.43 new states/sec
+* walltime 51.7 minutes
+
+* 2735950 states checked (98.1% of total 2789907), 7177764 transitions, bf-level 26,  2 operations not covered, 4568.103 MB
+* currently checking 1236.14 states/sec, adding 852.66 new states/sec
+* walltime 52.0 minutes
+
+* 2760575 states checked (98.4% of total 2806459), 7208992 transitions, bf-level 27,  2 operations not covered, 4565.238 MB
+* currently checking 1230.14 states/sec, adding 826.86 new states/sec
+* walltime 52.4 minutes
+
+* 2785175 states checked (98.7% of total 2821357), 7239341 transitions, bf-level 27,  2 operations not covered, 4588.726 MB
+* currently checking 1229.14 states/sec, adding 744.38 new states/sec
+* walltime 52.7 minutes
+
+* 2809300 states checked (99.1% of total 2834374), 7269523 transitions, bf-level 28,  2 operations not covered, 4609.977 MB
+* currently checking 1205.41 states/sec, adding 650.39 new states/sec
+* walltime 53.0 minutes
+
+* 2832925 states checked (99.6% of total 2845255), 7299592 transitions, bf-level 29,  2 operations not covered, 4628.717 MB
+* currently checking 1181.13 states/sec, adding 544.00 new states/sec
+* walltime 53.4 minutes
+% Model checking finished, all open states visited
+Model checking time: 3180467 ms (3218679 ms walltime)
+States analysed: 2850817
+Transitions fired: 7323650
+Breadth-first levels: 34
+No counter example found. However, not all transitions were computed !
+Writing states to dot file Lack_C2.dot
+Coverage:
+ States: 2850818 (2850818 processed, 0 ignored)
+ Transitions: 7323650
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 18) were not covered:
+   [Set_mem_map,Set_iommu_control]
+ProB memory used:  4602.682 MB ( 4497.825 MB program) 
+
+Lack of C3
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 37 ms (walltime: 44 ms)
+% Found "invariant_violation" error in state id 351
+finding_trace_from_to(root)
+.
+Model checking time: 1458 ms (1462 ms walltime)
+States analysed: 351
+Transitions fired: 3395
+Breadth-first levels: 5
+[31m*** COUNTER EXAMPLE FOUND ***[0m
+
+invariant_violation
+*** TRACE (length=5):
+ 1: SETUP_CONSTANTS(gate_type={n2p_gate,p2n_gate},code_type={priv_code,normal_code,n2p_gate,p2n_gate},data_type={priv_data,pt,iopt,iommu_control,idt,normal_stack,priv_stack},addr_reg={pc,sp,ttbr,vbar},bit_reg={tcr,sctlr},reg_bit={(tcr|->sz)},inst_priv={(set_tcr|->(tcr|->set)),(set_ttbr|->(ttbr|->set)),(set_vbar|->(vbar|->set)),(set_sctlr|->(sctlr|->set))},mem_priv_diff={(priv_data|->read),(priv_data|->write),(priv_code|->read),(priv_code|->execute),(pt|->read),(pt|->write),(iopt|->read),(iopt|->writ...
+ 2: INITIALISATION(mem_type={(1|->priv_stack),(2|->normal_stack),(3|->p2n_gate),(4|->n2p_gate),(5|->idt),(6|->iommu_control),(7|->iopt),(8|->pt),(9|->normal_code),(10|->priv_code),(11|->priv_data)})
+ 3: Jump(9)
+ 4: Call(10)
+ 5: Ret
+[31m[1m*** Invariant 15 false (in state with id 351):
+ tag = normal => mem_type_priv /\ mem_priv_diff = {}
+[0m[31m[1m*** Invariant 17 false (in state with id 351):
+ tag = normal => reg_priv /\ ran(inst_priv) = {}
+[0m
+Writing states to dot file Lack_C3.dot
+Coverage:
+ States: 2128 (353 processed, 0 ignored)
+ Transitions: 3395
+ Uninitialised states: 2 (root and constants only)
+ The following 1 operations (out of 18) were not covered:
+   [Interrupt]
+At least one state violates the invariant (351) 
+ProB memory used:  173.960 MB ( 69.103 MB program) 
+
