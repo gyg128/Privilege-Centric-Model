@@ -1,6 +1,5 @@
 #!/bin/bash
-#probcli_path=/usr/software/ProB/probcli
-probcli_path=~/Documents/App/ProB/probcli
+probcli_path=/usr/software/ProB/probcli
 model_check="-model-check -mc-mode bf -p COMPRESSION TRUE -p DOT_IDS TRUE -memory -disable-timeout --coverage-summary"
 m2dot="-dot state_space_sfdp"
 dot_path=/usr/bin/dot
