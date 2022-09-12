@@ -6,15 +6,23 @@ This documentation contains steps necessary to reproduce the artifact for our pa
 
 ## Abstract
 
-We propose a general and extensible formal framework for intra-level privilege separation. The artifact contains the B source code of Nested Kernel and Hilps models as well as the corresponding abstract machines for security analysis. We rely on ProB-1.11.1 to perform model checking, which requires Java 7 or newer and Graphviz. All state space visualization results, including Figures 6-7 in the paper, and scripts to reproduce the evaluation are also released in the repository. The instantiated privilege-centric models are described in Section 5 and evaluated in Section 6 to obtain Table 1. The security analysis consists of security contract analysis, design error detection, and attack scenario simulation in Section 7, resulting in Tables 2-4, respectively. Most model checking experiments will be completed in a few seconds, except for C2 in Table 2, which took about 3 minutes on a machine with an Intel i7-10700 CPU and 16GB RAM.
+We propose a general and extensible formal framework for intra-level privilege separation. The artifact contains the B source code of Nested Kernel and Hilps models as well as the corresponding abstract machines for security analysis. We rely on ProB-1.11.1 to perform model checking, which requires Java 7 or newer and Graphviz. All state space visualization results, including Figures 6-7 in the paper, and scripts to reproduce the evaluation are also released in the repository. The instantiated privilege-centric models are described in Section 5 and evaluated in Section 6 to obtain Table 1. The security analysis consists of security contract analysis, design error detection, and attack scenario simulation in Section 7, resulting in Tables 2-7. Most model checking experiments will be completed in a few seconds. Only the largest model (C2 in Table 5) took about 53 minutes on a machine with an Intel i7-10700 CPU and 16GB RAM.
 
 ## Setting up the environment
 
-* Use the [docker image](https://hub.docker.com/u/gangna).
+* Use the [docker image](https://hub.docker.com/r/gangna/ubuntu/tags).
+
+```
+docker pull gangna/ubuntu:pcm
+docker run -it ubuntu:pcm /bin/bash
+cd /usr/software/pcm
+```
 
 ### Manual setup
 
 * Download and install [ProB-1.11.1](https://prob.hhu.de/w/index.php?title=Download), which requires Java 7 or newer and [Graphviz](https://www.graphviz.org/download/). Tcl/Tk is not necessary for probcli (the command line version of ProB).
+
+* Confirm `probcli_path` and `dot_path` in the scripts.
 
 ## Script explanation
 
@@ -44,8 +52,6 @@ $dot_path -Ksfdp -x -Goverlap=scale -Tpdf *.dot -o *.pdf
 
 ### Table 1
 
-* Confirm `probcli_path` and `dot_path` in `model_check.sh`
-
 * Execute `./model_check.sh`
 
 * Follow the prompts for input,
@@ -72,8 +78,6 @@ Selecting "all" will output the results to model_check.txt.
 
 * `cd Nested_Kernel/Lack_of_Contract/`
 
-* Confirm `probcli_path` and `dot_path` in `contracts.sh`
-
 * Execute `./contracts.sh`
 
 * Follow the prompts for input,
@@ -99,8 +103,6 @@ Selecting "all" will output the results to contracts.txt.
 
 * `cd Nested_Kernel/Design_Errors/`
 
-* Confirm `probcli_path` and `dot_path` in `errors.sh`
-
 * Execute `./errors.sh`
 
 * Follow the prompts for input,
@@ -120,8 +122,6 @@ Selecting "all" will output the results to errors.txt.
 
 * `cd Nested_Kernel/Attack_Scenarios/`
 
-* Confirm `probcli_path` and `dot_path` in `attacks.sh`
-
 * Execute `./attacks.sh`
 
 * Follow the prompts for input,
@@ -137,8 +137,20 @@ Selecting "all" will output the results to attacks.txt.
 
 * Any type errors resulting from I1-I5 violations are omitted from the table.
 
+### Tables 5-7 in the appendices (Security analysis results of Hilps)
+
+* Similar to Tables 2-4, execute the corresponding scripts in `Hilps/`.
+
+#### Notes
+
+* "Invariant 14-19" in the output of Hilps corresponds to "I1-I6" in the paper.
+
+* We did not generate the pdf files for the large state spaces of C2 in Table 5 and Error4 in Table 6.
+
+* Refer to Section 7.4 for the security comparison of Nested Kernel and Hilps.
+
 ## Approximate execution time
 
-The model checking time on a machine with an Intel i7-10700 CPU and 16GB RAM is shown in Tables 1-4. Most experiments will be completed in a few seconds, except for C2 in Table 2, which takes about 3 minutes.
+The model checking time on a machine with an Intel i7-10700 CPU and 16GB RAM is shown in Tables 1-7. Most experiments will be completed in a few seconds, with the largest model (C2 in Table 5) taking about 53 minutes.
 
 Generating the state space pdf files will take a few more seconds, except for Hilps in Table 1, which takes about 5 minutes.
