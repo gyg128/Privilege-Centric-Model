@@ -14,7 +14,7 @@ We propose a general and extensible formal framework for intra-level privilege s
 
 ```
 docker pull gangna/ubuntu:pcm
-docker run -it ubuntu:pcm /bin/bash
+docker run -it gangna/ubuntu:pcm /bin/bash
 cd /usr/software/pcm
 ```
 
