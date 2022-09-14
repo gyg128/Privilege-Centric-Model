@@ -22,6 +22,8 @@ cd /usr/software/pcm
 
 * Download and install [ProB-1.11.1](https://prob.hhu.de/w/index.php?title=Download), which requires Java 7 or newer and [Graphviz](https://www.graphviz.org/download/). Tcl/Tk is not necessary for probcli (the command line version of ProB).
 
+* `git clone https://github.com/gyg128/Privilege-Centric-Model.git`
+
 * Confirm `probcli_path` and `dot_path` in the scripts.
 
 ## Script explanation
@@ -91,7 +93,7 @@ Selecting "all" will output the results to contracts.txt.
 
 ![example2](https://github.com/gyg128/Privilege-Centric-Model/blob/main/Examples/example2.png)
 
-* Due to page limit, we only list key operations in the table, such as omitting "SETUP_CONSTANTS".
+* Due to page limit, we only list critical operations in the table, such as omitting "SETUP_CONSTANTS".
 
 * Since there are type invariants in front, "Invariant 13-17" in the output corresponds to "I1-I5" in the paper.
 
