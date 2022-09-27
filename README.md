@@ -10,6 +10,8 @@ We propose a general and extensible formal framework for intra-level privilege s
 
 ## Setting up the environment
 
+### Easy setup
+
 * Use the [docker image](https://hub.docker.com/r/gangna/ubuntu/tags).
 
 ```
@@ -19,6 +21,8 @@ cd /usr/software/pcm
 ```
 
 ### Manual setup
+
+If you want to set up the environment manually for some reason:
 
 * Download and install [ProB-1.11.1](https://prob.hhu.de/w/index.php?title=Download), which requires Java 7 or newer and [Graphviz](https://www.graphviz.org/download/). Tcl/Tk is not necessary for probcli (the command line version of ProB).
 
