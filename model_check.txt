@@ -1,44 +1,117 @@
 Nested Kernel
 % unused_constants(1,[bit_reg])
-% Runtime for SOLUTION for SETUP_CONSTANTS: 43 ms (walltime: 71 ms)
+% Runtime for SOLUTION for SETUP_CONSTANTS: 45 ms (walltime: 46 ms)
 % Model checking finished, all open states visited
-Model checking time: 2559 ms (2618 ms walltime)
+Model checking time: 2759 ms (2846 ms walltime)
 States analysed: 2553
 Transitions fired: 4886
 Breadth-first levels: 24
 No counter example found. However, not all transitions were computed !
-Writing states to dot file ./Nested_Kernel/Nested_Kernel.dot
 Coverage:
  States: 2554 (2554 processed, 0 ignored)
  Transitions: 4886
  Uninitialised states: 2 (root and constants only)
  The following 2 operations (out of 16) were not covered:
    [Set_mem_map,Set_iommu_control]
-ProB memory used:  174.039 MB ( 69.181 MB program) 
+ProB memory used:  173.847 MB ( 68.990 MB program) 
 
 Hilps
 % unused_constants(1,[bit_reg])
-% Runtime for SOLUTION for SETUP_CONSTANTS: 44 ms (walltime: 44 ms)
+% Runtime for SOLUTION for SETUP_CONSTANTS: 42 ms (walltime: 46 ms)
 
-* 15975 states checked (75.4% of total 21186), 45902 transitions, bf-level 14,  2 operations not covered, 203.454 MB
-* currently checking 798.46 states/sec, adding 1058.88 new states/sec
+* 15475 states checked (75.2% of total 20575), 44326 transitions, bf-level 14,  2 operations not covered, 202.406 MB
+* currently checking 772.73 states/sec, adding 1027.37 new states/sec
 * walltime 0.3 minutes
 
-* 35425 states checked (94.3% of total 37579), 90305 transitions, bf-level 19,  2 operations not covered, 238.944 MB
-* currently checking 971.97 states/sec, adding 819.20 new states/sec
+* 34025 states checked (93.0% of total 36571), 87228 transitions, bf-level 18,  2 operations not covered, 236.957 MB
+* currently checking 926.11 states/sec, adding 798.60 new states/sec
 * walltime 0.7 minutes
 % Model checking finished, all open states visited
-Model checking time: 47745 ms (48549 ms walltime)
+Model checking time: 50649 ms (51416 ms walltime)
 States analysed: 44545
 Transitions fired: 105218
 Breadth-first levels: 28
 No counter example found. However, not all transitions were computed !
-Writing states to dot file ./Hilps/Hilps.dot
 Coverage:
  States: 44546 (44546 processed, 0 ignored)
  Transitions: 105218
  Uninitialised states: 2 (root and constants only)
  The following 2 operations (out of 18) were not covered:
    [Set_mem_map,Set_iommu_control]
-ProB memory used:  238.102 MB ( 133.245 MB program) 
+ProB memory used:  237.938 MB ( 133.081 MB program) 
+
+SKEE_ARMv7
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 54 ms (walltime: 55 ms)
+
+* 15150 states checked (76.5% of total 19809), 39204 transitions, bf-level 15,  2 operations not covered, 208.435 MB
+* currently checking 756.69 states/sec, adding 989.36 new states/sec
+* walltime 0.3 minutes
+
+* 33075 states checked (88.5% of total 37353), 81164 transitions, bf-level 18,  2 operations not covered, 236.159 MB
+* currently checking 895.94 states/sec, adding 876.89 new states/sec
+* walltime 0.7 minutes
+
+* 52175 states checked (99.9% of total 52222), 112824 transitions, bf-level 29,  2 operations not covered, 251.797 MB
+* currently checking 954.81 states/sec, adding 743.30 new states/sec
+* walltime 1.0 minutes
+% Model checking finished, all open states visited
+Model checking time: 59002 ms (60088 ms walltime)
+States analysed: 52225
+Transitions fired: 112898
+Breadth-first levels: 31
+No counter example found. However, not all transitions were computed !
+Coverage:
+ States: 52226 (52226 processed, 0 ignored)
+ Transitions: 112898
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 18) were not covered:
+   [Set_mem_map,Set_iommu_control]
+ProB memory used:  251.896 MB ( 147.039 MB program) 
+
+SKEE_ARMv8
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 51 ms (walltime: 52 ms)
+% Model checking finished, all open states visited
+Model checking time: 19411 ms (19639 ms walltime)
+States analysed: 14849
+Transitions fired: 34562
+Breadth-first levels: 26
+No counter example found. However, not all transitions were computed !
+Coverage:
+ States: 14850 (14850 processed, 0 ignored)
+ Transitions: 34562
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 17) were not covered:
+   [Set_mem_map,Set_iommu_control]
+ProB memory used:  194.208 MB ( 89.350 MB program) 
+
+SelMon
+% unused_constants(1,[bit_reg])
+% Runtime for SOLUTION for SETUP_CONSTANTS: 51 ms (walltime: 52 ms)
+
+* 13625 states checked (75.7% of total 17996), 40123 transitions, bf-level 14,  2 operations not covered, 207.163 MB
+* currently checking 680.21 states/sec, adding 898.40 new states/sec
+* walltime 0.3 minutes
+
+* 29650 states checked (86.4% of total 34310), 80494 transitions, bf-level 18,  2 operations not covered, 233.292 MB
+* currently checking 800.49 states/sec, adding 814.93 new states/sec
+* walltime 0.7 minutes
+
+* 46500 states checked (97.5% of total 47689), 114179 transitions, bf-level 24,  2 operations not covered, 244.941 MB
+* currently checking 842.46 states/sec, adding 668.92 new states/sec
+* walltime 1.0 minutes
+% Model checking finished, all open states visited
+Model checking time: 61893 ms (62629 ms walltime)
+States analysed: 49153
+Transitions fired: 117506
+Breadth-first levels: 30
+No counter example found. However, not all transitions were computed !
+Coverage:
+ States: 49154 (49154 processed, 0 ignored)
+ Transitions: 117506
+ Uninitialised states: 2 (root and constants only)
+ The following 2 operations (out of 23) were not covered:
+   [Set_mem_map,Set_iommu_control]
+ProB memory used:  250.556 MB ( 145.698 MB program) 
 

@@ -303,6 +303,10 @@ OPERATIONS
         (mm : mem) &
         (switch_stage = 0) &
         (execute : mem_priv[{mm}]) &
+        (
+            control_bit(sz) = FALSE =>
+            (mem_tag(mm) /= privileged)
+        ) &
         (mm /= reg_mem(pc)) &
         (reg_mem(pc) /: ran(ret_addr)) &
         (
@@ -348,6 +352,10 @@ OPERATIONS
                 (mem_type(mm) : code_type)
             ) or
             (execute : mem_priv[{mm}])
+        ) &
+        (
+            control_bit(sz) = FALSE =>
+            (mem_tag(mm) /= privileged)
         ) &
         (
             (switch_stage = 0) or
@@ -451,7 +459,9 @@ OPERATIONS
         IF 
             bb = TRUE
         THEN
-            control_bit(sz) := TRUE
+            control_bit(sz) := TRUE ||
+            mem_type_priv := mem_type_priv \/ mem_priv_diff ;
+            mem_priv := mem_priv_policy
         ELSE
             control_bit(sz) := FALSE
         END ||

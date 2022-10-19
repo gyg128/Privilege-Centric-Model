@@ -6,7 +6,7 @@ This documentation contains steps necessary to reproduce the artifact for our pa
 
 ## Abstract
 
-We propose a general and extensible formal framework for intra-level privilege separation. The artifact contains the B source code of Nested Kernel and Hilps models as well as the corresponding abstract machines for security analysis. We rely on ProB-1.11.1 to perform model checking, which requires Java 7 or newer and Graphviz. All state space visualization results, including Figures 6-7 in the paper, and scripts to reproduce the evaluation are also released in the repository. The instantiated privilege-centric models are described in Section 5 and evaluated in Section 6 to obtain Table 1. The security analysis consists of security contract analysis, design error detection, and attack scenario simulation in Section 7, resulting in Tables 2-7. Most model checking experiments will be completed in a few seconds. Only the largest model (C2 in Table 5) took about 53 minutes on a machine with an Intel i7-10700 CPU and 16GB RAM.
+We propose a general and extensible formal framework for intra-level privilege separation. The artifact contains the B source code of Nested Kernel and Hilps models as well as the corresponding abstract machines for security analysis. We rely on ProB-1.11.1 to perform model checking, which requires Java 7 or newer and Graphviz. All state space visualization results, including Figures 6-7 in the paper, and scripts to reproduce the evaluation are also released in the repository. The instantiated privilege-centric models are described in Section 5 and evaluated in Section 6 to obtain Table 1. The security analysis consists of security contract analysis, design error detection, and attack scenario simulation in Section 7, resulting in Tables 2-8. Most model checking experiments will be completed in a few seconds. Only the largest model (C2 in Table 6) took about 53 minutes on a machine with an Intel i7-10700 CPU and 16GB RAM.
 
 ## Setting up the environment
 
@@ -56,7 +56,7 @@ $dot_path -Ksfdp -x -Goverlap=scale -Tpdf *.dot -o *.pdf
 
 ## Model checking
 
-### Table 1
+### Table 1 and Table 5
 
 * Execute `./model_check.sh`
 
@@ -64,7 +64,7 @@ $dot_path -Ksfdp -x -Goverlap=scale -Tpdf *.dot -o *.pdf
 ```
 Generate state spaces? (y or n)
 Please select the model to check:
-input "n" for Nested Kernel, "h" for Hilps, or "all"
+input "n" for Nested Kernel, "h" for Hilps, "sk7" for SKEE_ARMv7, "sk8" for SKEE_ARMv8, "sm" for SelMon, or "all"
 ```
 Selecting "all" will output the results to model_check.txt.
 
@@ -122,7 +122,7 @@ Selecting "all" will output the results to errors.txt.
 
 * The type error of no.1 will lead to an abort error.
 
-* "P2N_switch()" in the table represents a series of sequentially executed sub-operations (cf. last on page 5).
+* "P2N_switch()" in the table represents a series of sequentially executed sub-operations (cf. Section 5).
 
 ### Table 4 (Attack scenarios)
 
@@ -143,7 +143,7 @@ Selecting "all" will output the results to attacks.txt.
 
 * Any type errors resulting from I1-I5 violations are omitted from the table.
 
-### Tables 5-7 in the appendices (Security analysis results of Hilps)
+### Tables 6-8 in the appendices (Security analysis results of Hilps)
 
 * Similar to Tables 2-4, execute the corresponding scripts in `Hilps/`.
 
@@ -151,12 +151,12 @@ Selecting "all" will output the results to attacks.txt.
 
 * "Invariant 14-19" in the output of Hilps corresponds to "I1-I6" in the paper.
 
-* We did not generate the pdf files for the large state spaces of C2 in Table 5 and Error4 in Table 6.
+* We did not generate the pdf files for the large state spaces of C2 in Table 6 and Error4 in Table 7.
 
 * Refer to Section 7.4 for the security comparison of Nested Kernel and Hilps.
 
 ## Approximate execution time
 
-The model checking time on a machine with an Intel i7-10700 CPU and 16GB RAM is shown in Tables 1-7. Most experiments will be completed in a few seconds, with the largest model (C2 in Table 5) taking about 53 minutes.
+The model checking time on a machine with an Intel i7-10700 CPU and 16GB RAM is shown in Tables 1-8. Most experiments will be completed in a few seconds, with the largest model (C2 in Table 6) taking about 53 minutes.
 
 Generating the state space pdf files will take a few more seconds, except for Hilps in Table 1, which takes about 5 minutes.
